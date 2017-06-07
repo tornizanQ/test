@@ -2,13 +2,12 @@ $version_name=Get-ChildItem Env:quali_version
 
 #can be Server,Portal,ES
 $product_name=Get-ChildItem Env:quali_product
-$qs_setup_path = '"' +"\\builds\Builds\Suites\" + $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
+$qs_setup_path = '"' +"H:\+ $version_name +\CloudShell\Data"+'"'
 
 $answer_file=""
-$server_answer_file = '"'+"\\builds\Builds\Suites\"+$version_name+"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
-$portal_answer_file = "the portal ans file"
-$es_answer_file     = "the es ans file"
-
+$server_answer_file = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
+$portal_answer_file = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellPortalOnlyAnswersFile.xml"+ '"'
+$es_answer_file     = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellESOnlyAnswersFile.xml"+ '"'
 if ( $product_name -eq"server"){
 	$answer_file=$server_answer_file
 } 
