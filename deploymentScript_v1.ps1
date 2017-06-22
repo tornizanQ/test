@@ -1,9 +1,14 @@
+Write-Host "Start of config script"
 $version_name=Get-ChildItem Env:quali_version
 #can be Server,Portal,ES
 $product_name=Get-ChildItem Env:quali_product
 $server_ip=Get-ChildItem Env:server
 
+Write-Host $version_name $product_name $server_ip
+
 $qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
+
+Write-Host $qs_setup_path
 
 $answer_file=""
 $server_answer_file = '"'+"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
@@ -29,8 +34,8 @@ if ( $product_name -eq "es"){
 
 #Silent install the requested file
 $args ="/unattended /answers:" + $answer_file
-Write-Output "teset"
 
-Write-Output $args;
+
+Write-Host $args;
 
 Start-Process -FilePath $qs_setup_path -ArgumentList  $args
