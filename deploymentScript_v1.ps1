@@ -29,5 +29,8 @@ if ( $product_name -eq "es"){
 
 #Silent install the requested file
 $args ="/unattended /answers:" + $answer_file
+Write-Output "teset"
+
+Write-Output $args;
 
 Start-Process -FilePath $qs_setup_path -ArgumentList  $args
