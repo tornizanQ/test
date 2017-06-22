@@ -3,7 +3,7 @@ $version_name=Get-ChildItem Env:quali_version
 $product_name=Get-ChildItem Env:quali_product
 $server_ip=Get-ChildItem Env:server
 
-$qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data"+'"'
+$qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
 
 $answer_file=""
 $server_answer_file = '"'+"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
