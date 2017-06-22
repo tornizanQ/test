@@ -14,7 +14,7 @@ $server_ip=Get-ChildItem Env:server
 $server_ip=$server_ip.Value
 Write-Host $server_ip
 
-$qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name.Value +"\CloudShell\Data\QsSetup.exe"+'"'
+$qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
 
 Write-Host $qs_setup_path
 
