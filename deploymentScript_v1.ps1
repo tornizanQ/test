@@ -3,13 +3,13 @@ $version_name=Get-ChildItem Env:quali_version
 $product_name=Get-ChildItem Env:quali_product
 $server_ip=Get-ChildItem Env:server
 
-$qs_setup_path = '"' +"H:\+ $version_name +\CloudShell\Data"+'"'
+$qs_setup_path = '"' +"\\qsnas1\Shared\Tor"+ $version_name +"\CloudShell\Data"+'"'
 
 $answer_file=""
-$server_answer_file = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
-$portal_answer_file = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellPortalOnlyAnswersFile.xml"+ '"'
-$es_answer_file     = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellESOnlyAnswersFile.xml"+ '"'
-$portal_customer_config = '"'+"H:\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\Portal\customer.config"+ '"'
+$server_answer_file = '"'+"\\qsnas1\Shared\Tor"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
+$portal_answer_file = '"'+"\\qsnas1\Shared\Tor"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellPortalOnlyAnswersFile.xml"+ '"'
+$es_answer_file     = '"'+"\\qsnas1\Shared\Tor"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellESOnlyAnswersFile.xml"+ '"'
+$portal_customer_config = '"'+"\\qsnas1\Shared\Tor"+ $version_name +"\CloudShell\Utilities\AnswerFiles\Portal\customer.config"+ '"'
 if ( $product_name -eq"server"){
 	$answer_file=$server_answer_file
 } 
