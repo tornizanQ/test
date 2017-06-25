@@ -39,6 +39,7 @@ if ( $product_name -eq "es"){
 	$answer_file=$es_answer_file
 }
 
+write-host "answer_file: " $answer_file
 ##$batContent =  """$qs_setup_path"" /silent /answers:""$answer_file"" >> c:\results.txt"
 $batContent =  "$qs_setup_path /silent /answers:$answer_file"
 Add-Content "C:\InstallSuite.bat" $batContent
