@@ -13,7 +13,7 @@ $server_ip=Get-ChildItem Env:server
 $server_ip=$server_ip.Value
 Write-Host $server_ip
 $cmdkey = "cmdkey /add:qsnas1 /user:qualisystems\qauser /pass:qa1234"
-$qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
+$qs_setup_path = "\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"
 
 Write-Host "qs_setup_path: " $qs_setup_path
 
