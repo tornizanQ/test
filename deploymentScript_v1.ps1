@@ -1,6 +1,5 @@
 Write-Host "Start of config script"
 
-
 $version_name=Get-ChildItem Env:quali_version
 $version_name=$version_name.Value
 Write-Host $version_name
@@ -13,7 +12,7 @@ Write-Host $product_name
 $server_ip=Get-ChildItem Env:server
 $server_ip=$server_ip.Value
 Write-Host $server_ip
-
+$cmdkey = "cmdkey /add:qsnas1 /user:qualisystems\qauser /pass:qa1234"
 $qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
 
 Write-Host $qs_setup_path
@@ -26,6 +25,7 @@ $portal_customer_config = '"'+"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShel
 
 if ( $product_name -eq"server"){
 	$answer_file=$server_answer_file
+	
 } 
 
 if ( $product_name -eq "portal"){
@@ -39,10 +39,14 @@ if ( $product_name -eq "es"){
 	$answer_file=$es_answer_file
 }
 
+$batContent =  """$qs_setup_path"" /silent /answers:""$answer_file"" >> c:\results.txt"
+Add-Content "C:\InstallSuite.bat" $batContent
+$psexec = "cmd.exe /c 'c:\InstallSuite.bat'"
+Invoke-Expression -Command:$psexec
+Get-Content c:\results.txt
 
-#Silent install the requested file
-$args ="/unattended /answers:" + $answer_file
-Write-Host ----->args:
-Write-Host $args
+$lastLogFile = (Get-ChildItem "c:\ProgramData\QualiSystems\QsSetup\Logs" | sort LastWriteTime | select -last 1).FullName
+Write-host "Reading the file: $lastLogFile"
+Get-Content $lastLogFile
 
-Start-Process -FilePath $qs_setup_path -ArgumentList  $args
+
