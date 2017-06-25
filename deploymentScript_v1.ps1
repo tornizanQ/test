@@ -2,12 +2,12 @@ Write-Host "Start of config script"
 
 $version_name=Get-ChildItem Env:quali_version
 $version_name=$version_name.Value
-Write-Host $version_name
+Write-Host "version_name:" $version_name
 
 #can be Server,Portal,ES
 $product_name=Get-ChildItem Env:quali_product
 $product_name=$product_name.Value
-Write-Host $product_name
+Write-Host "product_name: " $product_name
 
 $server_ip=Get-ChildItem Env:server
 $server_ip=$server_ip.Value
@@ -15,7 +15,7 @@ Write-Host $server_ip
 $cmdkey = "cmdkey /add:qsnas1 /user:qualisystems\qauser /pass:qa1234"
 $qs_setup_path = '"' +"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Data\QsSetup.exe"+'"'
 
-Write-Host $qs_setup_path
+Write-Host "qs_setup_path: " $qs_setup_path
 
 $answer_file=""
 $server_answer_file = '"'+"\\qsnas1\Shared\Tor\"+ $version_name +"\CloudShell\Utilities\AnswerFiles\CloudShellServerOnlyAnswersFile.xml"+ '"'
