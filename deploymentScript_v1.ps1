@@ -43,8 +43,8 @@ write-host "answer_file: " $answer_file
 ##$batContent =  """$qs_setup_path"" /silent /answers:""$answer_file"" >> c:\results.txt"
 #$batContent =  "$qs_setup_path /silent /answers:$answer_file"
 $batContent =  """$qs_setup_path"" /silent /answers:$answer_file"
-Add-Content "C:\InstallSuite.cmd" $batContent
-$psexec = "cmd.exe /c 'c:\InstallSuite.cmd'"
+Add-Content "C:\InstallSuite.bat" $batContent
+$psexec = "cmd.exe /k 'c:\InstallSuite.bat'"
 Invoke-Expression -Command:$psexec
 Get-Content c:\results.txt
 
