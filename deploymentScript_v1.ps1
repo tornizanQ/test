@@ -45,6 +45,10 @@ write-host "answer_file: " $answer_file
 $batContent =  """$qs_setup_path"" /silent /answers:$answer_file"
 Add-Content "C:\InstallSuite.bat" $batContent
 $psexec = "cmd.exe /c 'c:\InstallSuite.bat'"
+
+$installPython =" cmd.exe /c 'choco install python --version 2.7.6'"
+Invoke-Expression -:$installPython 
+
 Invoke-Expression -Command:$psexec
 Get-Content c:\results.txt
 
