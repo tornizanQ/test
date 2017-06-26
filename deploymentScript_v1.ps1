@@ -43,12 +43,15 @@ write-host "answer_file: " $answer_file
 ##$batContent =  """$qs_setup_path"" /silent /answers:""$answer_file"" >> c:\results.txt"
 #$batContent =  "$qs_setup_path /silent /answers:$answer_file"
 $batContent =  """$qs_setup_path"" /silent /answers:$answer_file"
+$installPython = "choco install python --version 2.7.6"
+Add-Content "C:\InstallPython.bat" $installPython
 Add-Content "C:\InstallSuite.bat" $batContent
+$pyexec = "cmd.exe /c 'c:\InstallPython.bat'"
 $psexec = "cmd.exe /c 'c:\InstallSuite.bat'"
 
-$installPython =" cmd.exe /c 'choco install python --version 2.7.6'"
-Invoke-Expression -:$installPython 
-
+##$installPython = "cmd.exe /c 'choco install python --version 2.7.6'"
+##Invoke-Expression -:$installPython 
+Invoke-Expression -Command:$pyexec
 Invoke-Expression -Command:$psexec
 Get-Content c:\results.txt
 
