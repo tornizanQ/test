@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - name: Ansible create new file with permissions example.
+    file:
+      path: "/tmp/tortest.txt"
+      state: touch
+      mode: 0777
+      owner: torn
